@@ -1,0 +1,11 @@
+Роль сотрудника;Ф;И;О;Логин;Пароль
+1;Савицкая;Арина;Саввична;1y3lj8w0viop@outlook.com;2L6KZG
+1;Мартынов;Максим;Михайлович;3o698uk5c0rw@tutanota.com;uzWC67
+1;Зубов;Александр;Дамирович;lx24fvrt1aip@yahoo.com;8ntwUp
+2;Попов;Даниил;Олегович;s8z076vku95j@gmail.com;YOyhfR
+2;Семенов;Михаил;Никитич;n3bxm7f2q5i4@outlook.com;RSbvHv
+2;Дмитриева;Надежда;Вячеславовна;r7dztn8a5ihq@mail.com;rwVDh9
+3;Воронцова;Виктория;Саввична;vofgck2m39hq@gmail.com;LdNyos
+3;Софронов;Ярослав;Игоревич;s6q9tevybado@yahoo.com;gynQMT
+3;Егоров;Артём;Евгеньевич;p7wuls3dtq9v@yahoo.com;AtnDjr
+3;Ситникова;Эмилия;Степановна;rdn04s1u2ckb@mail.com;JlFRCZ

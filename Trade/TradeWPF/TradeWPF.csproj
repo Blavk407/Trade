@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <StartupObject></StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\logo.png" />
+    <None Remove="Resources\picture.png" />
+    <None Remove="Resources\Products\B736H6.jpg" />
+    <None Remove="Resources\Products\D735T5.jpg" />
+    <None Remove="Resources\Products\E732R7.jpg" />
+    <None Remove="Resources\Products\F573T5.jpg" />
+    <None Remove="Resources\Products\G387Y6.jpg" />
+    <None Remove="Resources\Products\H384H3.jpg" />
+    <None Remove="Resources\Products\K437E6.jpg" />
+    <None Remove="Resources\Products\R836H6.jpg" />
+    <None Remove="Resources\Products\T793T4.jpg" />
+    <None Remove="Resources\Products\А112Т4.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\logo.png" />
+    <Resource Include="Resources\picture.png" />
+    <Resource Include="Resources\Products\B736H6.jpg" />
+    <Resource Include="Resources\Products\D735T5.jpg" />
+    <Resource Include="Resources\Products\E732R7.jpg" />
+    <Resource Include="Resources\Products\F573T5.jpg" />
+    <Resource Include="Resources\Products\G387Y6.jpg" />
+    <Resource Include="Resources\Products\H384H3.jpg" />
+    <Resource Include="Resources\Products\K437E6.jpg" />
+    <Resource Include="Resources\Products\R836H6.jpg" />
+    <Resource Include="Resources\Products\T793T4.jpg" />
+    <Resource Include="Resources\Products\А112Т4.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

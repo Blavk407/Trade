@@ -1,0 +1,55 @@
+﻿<Page x:Class="TradeWPF.Pages.EditProduct"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TradeWPF.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EditProduct" FontFamily="Comic Sans MS" Loaded="EditProduct_Loaded">
+
+    <Grid>
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Center">
+                <Grid>
+                    <Rectangle Fill="Gray" Height="200" Width="300" Margin="15" MouseDown="ProductImage_MouseDown" Cursor="Hand"></Rectangle>
+                    <Image Name="ProductImage" Source="{Binding ProductPhoto}" Height="200" Width="300" Margin="15" Stretch="Fill" Cursor="Hand" MouseDown="ProductImage_MouseDown">
+                    <Image.Effect>
+                        <DropShadowEffect/>
+                    </Image.Effect>
+                </Image>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" MouseDown="ProductImage_MouseDown" Cursor="Hand">Загрузить изображение</TextBlock>
+                </Grid>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel>
+                        <TextBlock Margin="0,0,0,13">Артикул</TextBlock>
+                        <TextBlock Margin="0,0,0,12">Наименование</TextBlock>
+                        <TextBlock Margin="0,0,0,12">Описание</TextBlock>
+                        <TextBlock Margin="0,0,0,13">Категория</TextBlock>
+                        <TextBlock Margin="0,0,0,10">Производитель</TextBlock>
+                        <TextBlock Margin="0,0,0,13">Стоимость</TextBlock>
+                        <TextBlock Margin="0,0,0,12">Скидка</TextBlock>
+                        <TextBlock Margin="0,0,0,12">Кол-во на складе</TextBlock>
+                        <TextBlock Margin="0,0,0,10">Поставщик</TextBlock>
+                        <TextBlock Margin="0,0,0,13">Макс скидка</TextBlock>
+                        <TextBlock Margin="0,0,0,10">Единица измерения</TextBlock>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBox Name="ArticleTextBox" Width="300" Margin="10,0,0,10"></TextBox>
+                        <TextBox Name="NameTextBox" Width="300" Margin="10,0,0,10"></TextBox>
+                        <TextBox Name="DescriptionTextBox" Width="300" Margin="10,0,0,10"></TextBox>
+                        <TextBox Name="CategoryTextBox" Width="300" Margin="10,0,0,10"></TextBox>
+                        <TextBox Name="ManufacturerTextBox" Width="300" Margin="10,0,0,10"></TextBox>
+                        <TextBox Name="CostTextBox" Width="300" Margin="10,0,0,10"></TextBox>
+                        <TextBox Name="DiscountTextBox" Width="300" Margin="10,0,0,10"></TextBox>
+                        <TextBox Name="QuantityInStockTextBox" Width="300" Margin="10,0,0,10"></TextBox>
+                        <TextBox Name="ProviderTextBox" Width="300" Margin="10,0,0,10"></TextBox>
+                        <TextBox Name="MaxDiscountTextBox" Width="300" Margin="10,0,0,10"></TextBox>
+                        <TextBox Name="UnitOfMeasurementTextBox" Width="300" Margin="10,0,0,10"></TextBox>
+                        <Button Name="EditButton" Margin="10">Редактировать</Button>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
