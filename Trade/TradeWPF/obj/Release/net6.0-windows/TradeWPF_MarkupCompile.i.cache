@@ -1,0 +1,20 @@
+﻿TradeWPF
+1.0.0.0
+
+winexe
+C#
+.cs
+D:\WS\Подготовка к вс\Задание 1\Trade\TradeWPF\obj\Release\net6.0-windows\
+TradeWPF
+none
+false
+TRACE;RELEASE;NET;NET6_0;NETCOREAPP
+D:\WS\Подготовка к вс\Задание 1\Trade\TradeWPF\App.xaml
+41183787164
+1-1606303973
+142015538735
+195-1426544182
+Pages\EditProduct.xaml;Pages\ListProduct.xaml;Windows\Authorization.xaml;Windows\Menu.xaml;
+
+False
+

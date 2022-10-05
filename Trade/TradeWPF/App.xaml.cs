@@ -19,8 +19,6 @@ namespace TradeWPF
 
         public static Product? selectedProduct;
 
-        public static int? selectedProductId;
-
         public static string actionProdutc;
 
         public static Frame mainFrame = new();

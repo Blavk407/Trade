@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\captcha.jpg" />
     <None Remove="Resources\logo.png" />
     <None Remove="Resources\picture.png" />
     <None Remove="Resources\Products\B736H6.jpg" />
@@ -29,6 +30,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\captcha.jpg" />
     <Resource Include="Resources\logo.png" />
     <Resource Include="Resources\picture.png" />
     <Resource Include="Resources\Products\B736H6.jpg" />

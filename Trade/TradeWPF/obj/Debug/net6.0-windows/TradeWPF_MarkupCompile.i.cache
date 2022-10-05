@@ -11,10 +11,10 @@ false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\WS\Подготовка к вс\Задание 1\Trade\TradeWPF\App.xaml
 41183787164
-1-1606303973
-141502498697
-194-1951243044
+2-1355009753
+151760359183
+195-1426544182
 Pages\EditProduct.xaml;Pages\ListProduct.xaml;Windows\Authorization.xaml;Windows\Menu.xaml;
 
-True
+False
 

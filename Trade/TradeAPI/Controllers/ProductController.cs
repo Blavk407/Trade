@@ -25,14 +25,14 @@ namespace TradeAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> Get()
         {
-            var books = await _context.Products.ToListAsync();
-            return Ok(books);
+            var products = await _context.Products.ToListAsync();
+            return Ok(products);
         }
 
-        [HttpDelete("{id:int}")]
-        public async Task<ActionResult<Product>> Delete([FromRoute] int id)
+        [HttpDelete]
+        public async Task<ActionResult<Product>> Delete(string article)
         {
-            var product = await _context.Products.FindAsync(id);
+            var product =  _context.Products.FirstOrDefault(p => p.ProductArticleNumber == article);
             if (product == null)
                 return BadRequest();
             _context.Products.Remove(product);
@@ -40,10 +40,10 @@ namespace TradeAPI.Controllers
             return Ok();
         }
 
-        [HttpPut("{id:int}")]
-        public async Task<ActionResult<Product>> Put([FromRoute] int id, [FromBody] Product model)
+        [HttpPut]
+        public async Task<ActionResult<Product>> Put(string article, [FromBody] Product model)
         {
-            var product = await _context.Products.FindAsync(id);
+            var product = _context.Products.FirstOrDefault(p => p.ProductArticleNumber == article);
             if (product == null)
                 return BadRequest();
             product.ProductManufacturer = model.ProductManufacturer;
@@ -61,13 +61,15 @@ namespace TradeAPI.Controllers
             return Ok();
         }
 
-        [HttpGet("{id:int}")]
-        public async Task<ActionResult<Product>> GetProduct([FromRoute] int id)
+        [HttpGet("Manufacturers")]
+        public async Task<ActionResult<List<string>>> GetManufacturer()
         {
-            var product = await _context.Products.FindAsync(id);
-            if (product == null)
-                return NotFound();
-            return Ok(product);
+            var products = await _context.Products.ToListAsync();
+            List<string> manufacturers = new List<string>();
+            foreach (var product in products)
+                manufacturers.Add(product.ProductManufacturer);
+            manufacturers = manufacturers.Distinct().ToList();
+            return Ok(manufacturers);
         }
     }
 }

@@ -13,7 +13,7 @@
             <StackPanel HorizontalAlignment="Center">
                 <Grid>
                     <Rectangle Fill="Gray" Height="200" Width="300" Margin="15" MouseDown="ProductImage_MouseDown" Cursor="Hand"></Rectangle>
-                    <Image Name="ProductImage" Source="{Binding ProductPhoto}" Height="200" Width="300" Margin="15" Stretch="Fill" Cursor="Hand" MouseDown="ProductImage_MouseDown">
+                    <Image Name="ProductImage" Height="200" Width="300" Margin="15" Stretch="Fill" Cursor="Hand" MouseDown="ProductImage_MouseDown">
                     <Image.Effect>
                         <DropShadowEffect/>
                     </Image.Effect>

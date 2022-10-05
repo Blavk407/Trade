@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Uc32O+HPDgH0Y7b8cB+mx37zO7dO3aPcXMH3o6FJbZHh77H1lhYffM/JjLyZt3K26g1DrFI3KmMj6x8TnaZVPw==",
+  "dgSpecHash": "6A31ArimhgGVx1qWAgPEqueBFO+ZuIA29TA66N00QklszEnJO+5gCtPldhgZzQZXo2DzO9OJUipp8q+51Daa7A==",
   "success": true,
   "projectFilePath": "D:\\WS\\Подготовка к вс\\Задание 1\\Trade\\TradeWPF\\TradeWPF.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Егор\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\Егор\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

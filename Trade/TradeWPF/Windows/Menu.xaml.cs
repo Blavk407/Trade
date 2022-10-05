@@ -28,7 +28,7 @@ namespace TradeWPF.Windows
 
         private void Menu_Loaded(object sender, RoutedEventArgs e)
         {
-            FIOTextBlock.Text = App.authUser.UserSurname + " " + App.authUser.UserName + " " + App.authUser.UserPatronymic;
+            FIOTextBlock.Text = (App.authUser == null) ? "гость" : App.authUser.UserSurname + " " + App.authUser.UserName + " " + App.authUser.UserPatronymic;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

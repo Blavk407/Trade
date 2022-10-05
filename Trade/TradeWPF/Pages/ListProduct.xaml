@@ -7,6 +7,15 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ListProduct" Loaded="ListProduct_Loaded" FontFamily="Comic Sans MS">
+    <Page.Resources>
+        <Style TargetType="ListViewItem">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding AvailableInStock}" Value="false">
+                    <Setter Property="Background" Value="WhiteSmoke"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -17,13 +26,14 @@
             <Button x:Name="AddButton" Margin="5" Padding="5" Click="AddButton_Click">Добавить</Button>
             <Button x:Name="EditButton" Margin="5" Padding="5" Click="EditButton_Click">Редактировать</Button>
             <Button x:Name="DeleteButton" Margin="5" Padding="5" Click="DeleteButton_Click">Удалить</Button>
-            <Label x:Name="CountStringsLabel" Margin="5" HorizontalContentAlignment="Right"></Label>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <Button x:Name="AscendingButton" Margin="5" Padding="5" Click="AscendingButton_Click">Возрастание</Button>
             <Button x:Name="DescendingButton" Margin="5" Padding="5" Click="DescendingButton_Click">Убывание</Button>
             <TextBox x:Name="SearchTextBox" Margin="5" Width="200" TextChanged="SearchTextBox_TextChanged"></TextBox>
+            <ComboBox Name="FiltrationComboBox" Margin="5" Width="200" SelectionChanged="FiltrationComboBox_Selected"></ComboBox>
         </StackPanel>
+        <Label x:Name="CountStringsLabel" Margin="0,0,20,15" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="2"></Label>
         <ListView Grid.Row="1" Name="ProductsListView" ItemsSource="{Binding Product}" SelectionChanged="ProductsListView_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>

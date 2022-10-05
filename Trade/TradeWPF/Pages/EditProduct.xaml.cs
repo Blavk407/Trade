@@ -48,6 +48,7 @@ namespace TradeWPF.Pages
                 ProviderTextBox.Text = App.selectedProduct.ProductProvider.ToString();
                 MaxDiscountTextBox.Text = App.selectedProduct.ProductMaxDiscountAmount.ToString();
                 UnitOfMeasurementTextBox.Text = App.selectedProduct.ProductUnitOfMeasurement;
+                ProductImage.Source = new BitmapImage(new Uri(@$"{path}Resources/Products/{ArticleTextBox.Text}.jpg"));
                 EditButton.Click += EditProducts;
             }
         }
@@ -56,25 +57,9 @@ namespace TradeWPF.Pages
         {
             try
             {
-                Product newProduct = new Product
-                {
-                    ProductArticleNumber = ArticleTextBox.Text,
-                    ProductCategory = CategoryTextBox.Text,
-                    ProductPhoto = (string.IsNullOrEmpty(ProductImage.Source.ToString())) ? @"/Resources/picture.png" : ProductImage.Source.ToString(),
-                    ProductCost = double.Parse(CostTextBox.Text),
-                    ProductDiscountAmount = int.Parse(DiscountTextBox.Text),
-                    ProductDescription = DescriptionTextBox.Text,
-                    ProductManufacturer = ManufacturerTextBox.Text,
-                    ProductMaxDiscountAmount = int.Parse(MaxDiscountTextBox.Text),
-                    ProductName = NameTextBox.Text,
-                    ProductProvider = ProviderTextBox.Text,
-                    ProductQuantityInStock = int.Parse(QuantityInStockTextBox.Text),
-                    ProductUnitOfMeasurement = UnitOfMeasurementTextBox.Text,
-                    Orders = null
-                };
-                var content = JsonContent.Create(newProduct);
+                Product newProduct = NewProduct();
                 var client = App.httpClient;
-                var postResponse = await client.PostAsync("https://localhost:7252/api/Product", content);
+                var postResponse = await client.PostAsJsonAsync("https://localhost:7252/api/Product", newProduct);
                 if (postResponse.IsSuccessStatusCode)
                 {
                     App.mainFrame.RemoveBackEntry();
@@ -88,9 +73,9 @@ namespace TradeWPF.Pages
 
         private async void EditProducts(object sender, RoutedEventArgs e)
         {
-            var product = App.selectedProduct;
+            Product newProduct = NewProduct();
             var client = App.httpClient;
-            var putResponse = await client.PutAsJsonAsync($"https://localhost:7252/api/Product/{App.selectedProductId + 1}", product);
+            var putResponse = await client.PutAsJsonAsync($"https://localhost:7252/api/Product?article={App.selectedProduct.ProductArticleNumber}", newProduct);
             if (putResponse.IsSuccessStatusCode)
             {
                 App.mainFrame.RemoveBackEntry();
@@ -99,14 +84,37 @@ namespace TradeWPF.Pages
             else
                 MessageBox.Show("Ошибка!");
         }
+        
+        private string path = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug\\net6.0-windows", "");
+
+        private Product NewProduct()
+        {
+            if (!File.Exists(@$"{path}Resources/Products/{ArticleTextBox.Text}.jpg"))
+                File.Copy(ProductImage.Source.ToString().Replace(@"file:///", ""), @$"{path}Resources/Products/{ArticleTextBox.Text}.jpg", true);
+            Product newProduct = new Product
+            {
+                ProductArticleNumber = ArticleTextBox.Text,
+                ProductCategory = CategoryTextBox.Text,
+                ProductPhoto = (string.IsNullOrEmpty(ProductImage.Source.ToString())) ? "" : @$"/Resources/Products/{ArticleTextBox.Text}.jpg",
+                ProductCost = double.Parse(CostTextBox.Text),
+                ProductDiscountAmount = int.Parse(DiscountTextBox.Text),
+                ProductDescription = DescriptionTextBox.Text,
+                ProductManufacturer = ManufacturerTextBox.Text,
+                ProductMaxDiscountAmount = int.Parse(MaxDiscountTextBox.Text),
+                ProductName = NameTextBox.Text,
+                ProductProvider = ProviderTextBox.Text,
+                ProductQuantityInStock = int.Parse(QuantityInStockTextBox.Text),
+                ProductUnitOfMeasurement = UnitOfMeasurementTextBox.Text,
+                Orders = null
+            };
+            return newProduct;
+        }
 
         private void ProductImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
-            {
                 ProductImage.Source = new BitmapImage(new Uri(openFileDialog.FileName));
-            }
         }
     }
 }

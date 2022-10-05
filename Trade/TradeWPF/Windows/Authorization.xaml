@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
         <Image Source="\Resources\logo.png" Stretch="None" VerticalAlignment="Top" Margin="0,20,0,0"></Image>
         <Label FontSize="55" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,70">ООО "Столовые приборы"</Label>
-        <TextBlock HorizontalAlignment="Center" FontSize="30" VerticalAlignment="Bottom" Margin="30" Foreground="Blue">Просмотреть ассортимент</TextBlock>
+        <TextBlock HorizontalAlignment="Center" FontSize="30" VerticalAlignment="Bottom" Margin="30" Foreground="Blue" Cursor="Hand" MouseDown="GoToMenu_MouseDown">Просмотреть ассортимент</TextBlock>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
             <StackPanel Orientation="Horizontal" >
                 <StackPanel Orientation="Vertical">
@@ -25,7 +25,13 @@
                     <PasswordBox Width="450" Margin="0,0,0,20" Name="PasswordPasswordBox"></PasswordBox>
                 </StackPanel>
             </StackPanel>
-            <Button Name="AuthButton" Click="AuthButton_ClickAsync">Войти</Button>
+            <Grid>
+                <StackPanel>
+                    <Image Name="CaptchaImage" Visibility="Hidden" Width="400" Height="150" Source="\Resources\captcha.jpg"></Image>
+                    <TextBox Name="CaptchaTextBox" Visibility="Hidden" Width="250" Margin="0,10,0,0"></TextBox>
+                </StackPanel>
+                <Button Height="75" Name="AuthButton" Click="AuthButton_ClickAsync" VerticalAlignment="Top">Войти</Button>
+            </Grid>
         </StackPanel>
     </Grid>
 </Window>
